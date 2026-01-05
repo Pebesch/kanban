@@ -12,13 +12,20 @@ java {
     }
 }
 
-repositories {
-    mavenCentral()
+allprojects {
+    repositories {
+        mavenCentral()
+    }
 }
 
-dependencies {
-}
+subprojects {
+    apply plugin: 'java'
 
-tasks.named('test') {
-    useJUnitPlatform()
+    dependencies {
+        testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
+    }
+
+    tasks.test {
+        useJUnitPlatform()
+    }
 }
