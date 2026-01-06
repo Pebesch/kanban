@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Lane {
-    private String laneId;
+    private LaneId id;
     private String title;
     private int maxNumberOfItems;
     private List<Lane> nextLanes;
