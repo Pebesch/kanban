@@ -1,0 +1,26 @@
+package ch.schmucki.core.board;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class KanbanBoard {
+    private KanbanBoardId id;
+    private final List<Lane> lanes;
+
+    public KanbanBoard() {
+        this.lanes = new ArrayList<>();
+        this.lanes.add(Lane.defaultBacklog());
+    }
+
+    public List<Lane> getLanes() {
+        return lanes;
+    }
+
+    public void addLane(Lane lane) {
+        this.lanes.add(lane);
+    }
+
+    public void removeLane(Lane lane) {
+        this.lanes.remove(lane);
+    }
+}

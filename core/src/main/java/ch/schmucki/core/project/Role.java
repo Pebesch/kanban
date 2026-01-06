@@ -1,4 +1,4 @@
-package ch.schmucki.core;
+package ch.schmucki.core.project;
 
 public enum Role {
     ADMIN,
