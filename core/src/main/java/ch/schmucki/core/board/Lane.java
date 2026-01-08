@@ -2,6 +2,7 @@ package ch.schmucki.core.board;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Lane {
     private LaneId id;
@@ -54,5 +55,17 @@ public class Lane {
 
     public static Lane defaultBacklog() {
         return new Lane("BACKLOG");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Lane lane = (Lane) o;
+        return maxNumberOfItems == lane.maxNumberOfItems && Objects.equals(id, lane.id) && Objects.equals(title, lane.title) && Objects.equals(nextLanes, lane.nextLanes) && Objects.equals(previousLanes, lane.previousLanes) && Objects.equals(workItems, lane.workItems);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, maxNumberOfItems, nextLanes, previousLanes, workItems);
     }
 }
