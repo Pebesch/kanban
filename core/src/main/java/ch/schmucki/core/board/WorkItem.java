@@ -18,12 +18,4 @@ public class WorkItem {
         this.owner = owner;
         this.issueType = issueType;
     }
-
-    public void moveToNextLane(Lane lane) throws IllegalLaneStateException {
-        if(this.lane.canBeMovedToLane(lane)) {
-            this.lane = lane;
-        } else {
-            throw new IllegalLaneStateException(String.format("Cannot be moved to lane %s", lane.getTitle()));
-        }
-    }
 }

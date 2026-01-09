@@ -6,11 +6,11 @@ import java.util.Objects;
 
 public class Lane {
     private LaneId id;
-    private String title;
+    private final String title;
     private int maxNumberOfItems;
-    private List<Lane> nextLanes;
-    private List<Lane> previousLanes;
-    private List<WorkItem> workItems;
+    private final List<Lane> nextLanes;
+    private final List<Lane> previousLanes;
+    private final List<WorkItem> workItems;
 
     public String getTitle() {
         return title;
@@ -24,14 +24,38 @@ public class Lane {
         this.workItems = new ArrayList<>();
     }
 
+    public void addWorkItem(WorkItem workItem) {
+        workItems.add(workItem);
+    }
+
+    public List<WorkItem> getWorkItems() {
+        return workItems;
+    }
+
+    public int getMaxNumberOfItems() {
+        return maxNumberOfItems;
+    }
+
+    public void setMaxNumberOfItems(int maxNumberOfItems) {
+        this.maxNumberOfItems = maxNumberOfItems;
+    }
+
     public boolean canBeMovedToLane(Lane lane) {
-        if(nextLanes.contains(lane) && lane.maxNumberOfItems < workItems.size()) {
+        if(nextLanes.contains(lane) && lane.maxNumberOfItems > lane.getWorkItems().size() + 1) {
             return true;
         };
-        if(previousLanes.contains(lane) && lane.maxNumberOfItems > workItems.size()) {
+        if(previousLanes.contains(lane) && lane.maxNumberOfItems > lane.getWorkItems().size() + 1) {
             return true;
         }
         return false;
+    }
+
+    public void moveItemToLane(WorkItem workItem, Lane lane) {
+        if(!canBeMovedToLane(lane)) {
+            throw new IllegalArgumentException("Cannot move item to lane " + lane.getTitle());
+        }
+        workItems.remove(workItem);
+        lane.addWorkItem(workItem);
     }
 
     public void addLaneToNext(Lane lane) {
