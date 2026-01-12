@@ -1,3 +1,5 @@
+import net.ltgt.gradle.errorprone.CheckSeverity
+
 plugins {
     id 'java'
     id 'net.ltgt.errorprone' version '4.4.0' apply false
@@ -26,6 +28,8 @@ subprojects {
     dependencies {
         testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
         errorprone 'com.google.errorprone:error_prone_core:2.46.0'
+        errorprone 'com.uber.nullaway:nullaway:0.12.15'
+        implementation 'org.jspecify:jspecify:1.0.0'
 
     }
 
@@ -34,6 +38,15 @@ subprojects {
     }
 
     tasks.withType(JavaCompile).configureEach  {
-        options.errorprone.disableWarningsInGeneratedCode = true
+        options.errorprone {
+            check("NullAway", CheckSeverity.ERROR)
+            option("NullAway:AnnotatedPackages", "com.uber")
+        }
+
+        if (name.toLowerCase().contains("test")) {
+            options.errorprone {
+                disable("NullAway")
+            }
+        }
     }
 }
