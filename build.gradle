@@ -3,6 +3,7 @@ import net.ltgt.gradle.errorprone.CheckSeverity
 plugins {
     id 'java'
     id 'net.ltgt.errorprone' version '4.4.0' apply false
+    id 'idea'
 }
 
 group = 'ch.schmucki'
@@ -26,6 +27,9 @@ subprojects {
     apply plugin: 'net.ltgt.errorprone'
 
     dependencies {
+        testImplementation 'org.junit.jupiter:junit-jupiter:6.0.2'
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
         testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
         errorprone 'com.google.errorprone:error_prone_core:2.46.0'
         errorprone 'com.uber.nullaway:nullaway:0.12.15'
@@ -35,6 +39,9 @@ subprojects {
 
     tasks.test {
         useJUnitPlatform()
+        testLogging {
+            events "passed", "skipped", "failed"
+        }
     }
 
     tasks.withType(JavaCompile).configureEach  {
