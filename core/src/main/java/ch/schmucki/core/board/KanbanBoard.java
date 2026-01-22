@@ -5,6 +5,7 @@ import java.util.List;
 
 public class KanbanBoard {
     private KanbanBoardId id;
+    private String name;
     private final List<Lane> lanes;
 
     public KanbanBoard() {

@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public class Lane {
     private LaneId id;
+    private int ordinal;
     private final String title;
     private int maxNumberOfItems;
     private final List<Lane> nextLanes;
@@ -18,10 +19,19 @@ public class Lane {
 
     public Lane(String title) {
         this.title = title;
+        this.ordinal = 0;
         this.maxNumberOfItems = Integer.MAX_VALUE;
         this.nextLanes = new ArrayList<>();
         this.previousLanes = new ArrayList<>();
         this.workItems = new ArrayList<>();
+    }
+
+    public int getOrdinal() {
+        return ordinal;
+    }
+
+    public void setOrdinal(int ordinal) {
+        this.ordinal = ordinal;
     }
 
     public void addWorkItem(WorkItem workItem) {
