@@ -51,7 +51,7 @@ public class Lane {
     }
 
     public boolean canBeMovedToLane(Lane lane) {
-        if (nextLanes.contains(lane) && lane.maxNumberOfItems < workItems.size()) {
+        if (nextLanes.contains(lane) && lane.maxNumberOfItems > workItems.size()) {
             return true;
         };
         if (previousLanes.contains(lane) && lane.maxNumberOfItems > workItems.size()) {
