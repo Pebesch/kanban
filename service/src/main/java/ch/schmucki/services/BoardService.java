@@ -1,10 +1,10 @@
-package services;
+package ch.schmucki.services;
 
 import ch.schmucki.core.board.KanbanBoard;
-import models.PersistedBoard;
+import ch.schmucki.models.PersistedBoard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repositories.PersistedBoardRepository;
+import ch.schmucki.repositories.PersistedBoardRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,5 +24,9 @@ public class BoardService {
 
     public Optional<PersistedBoard> findByName(String name) {
         return persistedBoardRepository.findByName(name);
+    }
+
+    public PersistedBoard createBoard(KanbanBoard kanbanBoard) {
+        return persistedBoardRepository.save(PersistedBoard.fromDomain(kanbanBoard));
     }
 }

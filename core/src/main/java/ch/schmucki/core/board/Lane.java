@@ -26,6 +26,28 @@ public class Lane {
         this.workItems = new ArrayList<>();
     }
 
+    public Lane(LaneId id, int ordinal, String title, int maxNumberOfItems, List<Lane> nextLanes, List<Lane> previousLanes, List<WorkItem> workItems) {
+        this.id = id;
+        this.ordinal = ordinal;
+        this.title = title;
+        this.maxNumberOfItems = maxNumberOfItems;
+        this.nextLanes = nextLanes;
+        this.previousLanes = previousLanes;
+        this.workItems = workItems;
+    }
+
+    public LaneId getId() {
+        return id;
+    }
+
+    public List<Lane> getNextLanes() {
+        return nextLanes;
+    }
+
+    public List<Lane> getPreviousLanes() {
+        return previousLanes;
+    }
+
     public int getOrdinal() {
         return ordinal;
     }

@@ -1,4 +1,4 @@
-package models;
+package ch.schmucki.models;
 
 
 import ch.schmucki.core.board.KanbanBoard;
@@ -22,6 +22,14 @@ public class PersistedBoard {
     private String name;
     @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PersistedLane> lanes = new ArrayList<PersistedLane>();
+
+    public static PersistedBoard fromDomain(KanbanBoard kanbanBoard) {
+        return new PersistedBoard(
+                kanbanBoard.getId().kanbanBoardId(),
+                kanbanBoard.getName(),
+                kanbanBoard.getLanes().stream().map(PersistedLane::fromDomain).toList()
+        );
+    }
 
     public KanbanBoard toDomain() {
         return new KanbanBoard(new KanbanBoardId(id), name);

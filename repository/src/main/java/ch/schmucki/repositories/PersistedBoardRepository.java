@@ -1,10 +1,9 @@
-package repositories;
+package ch.schmucki.repositories;
 
-import models.PersistedBoard;
+import ch.schmucki.models.PersistedBoard;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Repository

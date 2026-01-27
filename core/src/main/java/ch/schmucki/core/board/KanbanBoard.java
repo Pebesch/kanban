@@ -19,6 +19,14 @@ public class KanbanBoard {
         this.lanes.add(Lane.defaultBacklog());
     }
 
+    public KanbanBoardId getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public List<Lane> getLanes() {
         return lanes;
     }

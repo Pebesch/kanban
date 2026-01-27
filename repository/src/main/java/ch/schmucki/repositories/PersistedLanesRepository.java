@@ -1,6 +1,6 @@
-package repositories;
+package ch.schmucki.repositories;
 
-import models.PersistedLane;
+import ch.schmucki.models.PersistedLane;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
