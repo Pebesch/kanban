@@ -8,6 +8,12 @@ public class KanbanBoard {
     private String name;
     private final List<Lane> lanes;
 
+    public KanbanBoard(KanbanBoardId id, String name) {
+        this.id = id;
+        this.name = name;
+        this.lanes = new ArrayList<>();
+    }
+
     public KanbanBoard() {
         this.lanes = new ArrayList<>();
         this.lanes.add(Lane.defaultBacklog());
