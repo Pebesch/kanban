@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController()
+@RestController
 @RequestMapping("/boards")
 public class BoardController {
   private final BoardService boardService;
@@ -18,7 +18,7 @@ public class BoardController {
     this.boardService = boardService;
   }
 
-  @GetMapping()
+  @GetMapping
   public List<KanbanBoard> getAllBoards() {
     this.boardService.createBoard(new KanbanBoard());
     return boardService.findAll();
