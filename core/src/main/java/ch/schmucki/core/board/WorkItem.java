@@ -3,19 +3,19 @@ package ch.schmucki.core.board;
 import ch.schmucki.core.user.User;
 
 public class WorkItem {
-    private WorkItemId id;
-    private User kanbanUser;
-    private String name;
-    private String description;
-    private User owner;
-    private User assignee;
-    private IssueType issueType;
-    private Lane lane;
+  private WorkItemId id;
+  private User kanbanUser;
+  private String name;
+  private String description;
+  private User owner;
+  private User assignee;
+  private IssueType issueType;
+  private Lane lane;
 
-    public WorkItem(String name, String description, User owner, IssueType issueType) {
-        this.name = name;
-        this.description = description;
-        this.owner = owner;
-        this.issueType = issueType;
-    }
+  public WorkItem(String name, String description, User owner, IssueType issueType) {
+    this.name = name;
+    this.description = description;
+    this.owner = owner;
+    this.issueType = issueType;
+  }
 }

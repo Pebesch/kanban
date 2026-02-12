@@ -1,4 +1,3 @@
 package ch.schmucki.core.board;
 
-public record KanbanBoardId(long kanbanBoardId) {
-}
+public record KanbanBoardId(long kanbanBoardId) {}

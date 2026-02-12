@@ -1,4 +1,3 @@
 package ch.schmucki.core.project;
 
-public record ProjectId(String projectId) {
-}
+public record ProjectId(String projectId) {}
