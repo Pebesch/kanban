@@ -4,6 +4,7 @@ errorprone = "4.4.0"
 errorprone-core = "2.46.0"
 nullaway = "0.12.15"
 jspecify = "1.0.0"
+spotless = "8.2.1"
 
 # Spring
 spring = "7.0.3"
@@ -33,8 +34,8 @@ spring-context = {group = "org.springframework", name = "spring-context", versio
 spring-web = {group = "org.springframework", name = "spring-web", version.ref = "spring"}
 h2 = {group = "com.h2database", name = "h2", version.ref = "h2"}
 
-
 [plugins]
 errorprone = {id = "net.ltgt.errorprone", version.ref = "errorprone"}
 spring-boot = {id = "org.springframework.boot", version.ref = "spring-boot"}
 dependency-management = {id = "io.spring.dependency-management", version.ref = "dependency-management"}
+spotless = {id = "com.diffplug.spotless", version.ref ="spotless"}
