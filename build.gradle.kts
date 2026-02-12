@@ -4,6 +4,7 @@ import net.ltgt.gradle.errorprone.errorprone
 plugins {
     id("java")
     id("idea")
+    jacoco
     alias(libs.plugins.errorprone) apply false
     alias(libs.plugins.spotless) apply false
 }
@@ -27,6 +28,7 @@ allprojects {
 subprojects {
     apply(plugin = "java")
     apply(plugin = "java-library")
+    apply(plugin = "jacoco")
     apply(plugin = "net.ltgt.errorprone")
     apply(plugin = "com.diffplug.spotless")
 
@@ -53,6 +55,16 @@ subprojects {
         testLogging {
             events("passed", "skipped", "failed")
         }
+        finalizedBy(tasks.jacocoTestReport)
+    }
+
+    tasks.jacocoTestReport {
+        dependsOn(tasks.test)
+        reports {
+            xml.required = false
+            csv.required = false
+            html.outputLocation = layout.buildDirectory.dir("jacocoHtml")
+        }
     }
 
     tasks.withType<JavaCompile>().configureEach {
@@ -66,5 +78,20 @@ subprojects {
                 disable("NullAway")
             }
         }
+    }
+}
+
+tasks.register<JacocoReport>("jacocoRootReport") {
+    dependsOn(subprojects.map { it.tasks.named("test") })
+
+    subprojects.forEach { subproject ->
+        executionData(subproject.tasks.withType<Test>())
+        sourceSets(subproject.the<SourceSetContainer>()["main"])
+    }
+
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir("reports/jacoco/aggregate")
     }
 }
