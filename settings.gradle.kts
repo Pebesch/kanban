@@ -1,0 +1,6 @@
+rootProject.name = "kanban"
+include("core")
+include("service")
+include("repository")
+include("app")
+include("web")

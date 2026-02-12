@@ -1,0 +1,40 @@
+[versions]
+# Quality
+errorprone = "4.4.0"
+errorprone-core = "2.46.0"
+nullaway = "0.12.15"
+jspecify = "1.0.0"
+
+# Spring
+spring = "7.0.3"
+spring-boot = "4.0.2"
+h2 = "2.4.240"
+dependency-management = "1.1.7"
+lombok = "1.18.42"
+
+# Testing
+junit = "6.0.2"
+
+[libraries]
+junit-jupiter = {group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit"}
+junit-platform-launcher = {group = "org.junit.platform", name = "junit-platform-launcher", version.ref = "junit"}
+errorprone-core = {group = "com.google.errorprone", name = "error_prone_core", version.ref = "errorprone-core"}
+nullaway = {group = "com.uber.nullaway", name = "nullaway", version.ref = "nullaway"}
+jspecify = {group = "org.jspecify", name = "jspecify", version.ref = "jspecify"}
+lombok = {group = "org.projectlombok", name = "lombok", version.ref = "lombok"}
+spring-boot-starter = {group = "org.springframework.boot", name = "spring-boot-starter", version.ref = "spring-boot"}
+spring-boot-starter-web = {group = "org.springframework.boot", name = "spring-boot-starter-web", version.ref = "spring-boot"}
+spring-boot-starter-test = {group = "org.springframework.boot", name = "spring-boot-starter-test", version.ref = "spring-boot"}
+spring-boot-starter-data-jpa = {group = "org.springframework.boot", name = "spring-boot-starter-data-jpa", version.ref = "spring-boot"}
+spring-boot-devtools = {group = "org.springframework.boot", name = "spring-boot-devtools", version.ref = "spring-boot"}
+spring-boot-h2-console = {group = "org.springframework.boot", name = "spring-boot-h2console", version.ref = "spring-boot"}
+spring-core = {group = "org.springframework", name = "spring-core", version.ref = "spring"}
+spring-context = {group = "org.springframework", name = "spring-context", version.ref = "spring"}
+spring-web = {group = "org.springframework", name = "spring-web", version.ref = "spring"}
+h2 = {group = "com.h2database", name = "h2", version.ref = "h2"}
+
+
+[plugins]
+errorprone = {id = "net.ltgt.errorprone", version.ref = "errorprone"}
+spring-boot = {id = "org.springframework.boot", version.ref = "spring-boot"}
+dependency-management = {id = "io.spring.dependency-management", version.ref = "dependency-management"}

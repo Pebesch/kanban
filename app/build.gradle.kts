@@ -1,6 +1,6 @@
 plugins {
-    id("org.springframework.boot") version "4.0.2"
-    id("io.spring.dependency-management") version "1.1.7"
+    alias(libs.plugins.dependency.management)
+    alias(libs.plugins.spring.boot)
 }
 
 dependencies {
@@ -8,11 +8,11 @@ dependencies {
     implementation(project(":web"))
     implementation(project(":service"))
     implementation(project(":repository"))
-    implementation("org.springframework.boot:spring-boot-starter")
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    developmentOnly("org.springframework.boot:spring-boot-devtools")
-    runtimeOnly("com.h2database:h2")
-    implementation("org.springframework.boot:spring-boot-h2console:4.0.2")
+    implementation(libs.spring.boot.starter)
+    implementation(libs.spring.boot.starter.web)
+    implementation(libs.spring.boot.starter.data.jpa)
+    testImplementation(libs.spring.boot.starter.test)
+    developmentOnly(libs.spring.boot.devtools)
+    runtimeOnly(libs.h2)
+    implementation(libs.spring.boot.h2.console)
 }
