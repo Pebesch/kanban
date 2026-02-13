@@ -5,4 +5,6 @@ dependencies {
     implementation(libs.spring.core)
     implementation(libs.spring.context)
     implementation(libs.spring.web)
+    implementation(libs.mapstruct)
+    annotationProcessor(libs.mapstruct.processor)
 }

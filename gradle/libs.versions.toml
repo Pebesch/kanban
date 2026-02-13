@@ -9,6 +9,9 @@ spotless = "8.2.1"
 # Spring
 spring = "7.0.3"
 spring-boot = "4.0.2"
+
+# General
+mapstruct = "1.6.3"
 h2 = "2.4.240"
 dependency-management = "1.1.7"
 lombok = "1.18.42"
@@ -33,6 +36,8 @@ spring-core = {group = "org.springframework", name = "spring-core", version.ref 
 spring-context = {group = "org.springframework", name = "spring-context", version.ref = "spring"}
 spring-web = {group = "org.springframework", name = "spring-web", version.ref = "spring"}
 h2 = {group = "com.h2database", name = "h2", version.ref = "h2"}
+mapstruct = {group = "org.mapstruct", name = "mapstruct", version.ref = "mapstruct"}
+mapstruct-processor = {group = "org.mapstruct", name = "mapstruct-processor", version.ref = "mapstruct"}
 
 [plugins]
 errorprone = {id = "net.ltgt.errorprone", version.ref = "errorprone"}
