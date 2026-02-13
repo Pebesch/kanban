@@ -2,5 +2,5 @@ dependencies {
     api(libs.spring.boot.starter.data.jpa)
     compileOnly(libs.lombok)
     annotationProcessor(libs.lombok)
-    implementation(project(":core"))
+    implementation(project(":backend:core"))
 }

@@ -4,10 +4,10 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":core"))
-    implementation(project(":web"))
-    implementation(project(":service"))
-    implementation(project(":repository"))
+    implementation(project(":backend:core"))
+    implementation(project(":backend:web"))
+    implementation(project(":backend:service"))
+    implementation(project(":backend:repository"))
     implementation(libs.spring.boot.starter)
     implementation(libs.spring.boot.starter.web)
     implementation(libs.spring.boot.starter.data.jpa)

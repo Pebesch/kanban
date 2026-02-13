@@ -1,6 +1,6 @@
 rootProject.name = "kanban"
-include("core")
-include("service")
-include("repository")
-include("app")
-include("web")
+include(":backend:core")
+include(":backend:service")
+include(":backend:repository")
+include(":backend:app")
+include(":backend:web")
