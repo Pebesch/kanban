@@ -24,10 +24,10 @@ public class PersistedBoard {
   private List<PersistedLane> lanes = new ArrayList<PersistedLane>();
 
   public static PersistedBoard fromDomain(KanbanBoard kanbanBoard) {
-    return new PersistedBoard(
-        kanbanBoard.getId().kanbanBoardId(),
-        kanbanBoard.getName(),
-        kanbanBoard.getLanes().stream().map(PersistedLane::fromDomain).toList());
+    var persisted = new PersistedBoard();
+    persisted.setName(kanbanBoard.getName());
+    persisted.setLanes(new ArrayList<>());
+    return persisted;
   }
 
   public KanbanBoard toDomain() {

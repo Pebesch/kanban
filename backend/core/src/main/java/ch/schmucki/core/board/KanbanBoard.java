@@ -38,4 +38,12 @@ public class KanbanBoard {
   public void removeLane(Lane lane) {
     this.lanes.remove(lane);
   }
+
+  public void setId(KanbanBoardId id) {
+    this.id = id;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
 }
