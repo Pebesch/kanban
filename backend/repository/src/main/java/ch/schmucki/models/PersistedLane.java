@@ -35,14 +35,14 @@ public class PersistedLane {
   private List<PersistedLane> previousLanes;
 
   public static PersistedLane fromDomain(Lane lane) {
-    return new PersistedLane(
-        lane.getId().laneId(),
-        null,
-        lane.getOrdinal(),
-        lane.getTitle(),
-        lane.getMaxNumberOfItems(),
-        lane.getNextLanes().stream().map(PersistedLane::fromDomain).toList(),
-        lane.getPreviousLanes().stream().map(PersistedLane::fromDomain).toList());
+    var persistedLane = new PersistedLane();
+    persistedLane.setBoard(null);
+    persistedLane.setOrdinal(lane.getOrdinal());
+    persistedLane.setTitle(lane.getTitle());
+    persistedLane.setMaxNumberOfItems(lane.getMaxNumberOfItems());
+    persistedLane.setNextLanes(null);
+    persistedLane.setPreviousLanes(null);
+    return persistedLane;
   }
 
   public Lane toDomain() {
